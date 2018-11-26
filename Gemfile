@@ -3,7 +3,7 @@ ruby '2.4.5'
 
 gem 'devise'
 
-
+gem 'faker'
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
