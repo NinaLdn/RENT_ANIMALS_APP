@@ -1,0 +1,24 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+    <img src="images/logo.png" alt="logo">
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <%= link_to "nouvelle annonce", home_path, class:"navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "dashboard", home_path, class:"navbar-wagon-item navbar-wagon-link" %>
+
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "nouvelle annonce", home_path %></li>
+        <li><%= link_to "dashboard", home_path%> </li>
+      </ul>
+    </div>
+  </div>
+</div>
