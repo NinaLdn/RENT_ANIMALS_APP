@@ -17,8 +17,7 @@ puts 'Creating 100 fake users...'
     address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
     password: Faker::Internet.password,
     email: Faker::Internet.email
-
-)
+  )
   user.save!
 end
 
@@ -28,13 +27,13 @@ Animal.destroy_all
 
 puts 'Creating 30 fake animals...'
 30.times do
-  user = Animal.new(
+  animal = Animal.new(
     name: Faker::Name.first_name,
     category: Faker::Dog.breed,
     price: Faker::Commerce.price,
     user_id: User.all.sample.id
-
-    animal.save!
+  )
+  animal.save!
+end
 
 puts 'Finished!'
-
