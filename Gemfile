@@ -7,6 +7,8 @@ gem 'faker'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'cloudinary', '~> 1.9.1'
+
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

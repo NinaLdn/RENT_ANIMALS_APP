@@ -1,8 +1,28 @@
 <h1> All Animals</h1>
 
-<% @animals.each do |animal| %>
-  <h2><%= link_to animal.name, animal_path(animal) %></h2>
-  <p><%= animal.price %></p>
-  <p><%= animal.category %></p>
-<%end%>
+<div class="container">
+  <div class="row" id="animalslist">
+
+    <% @animals.each do |animal| %>
+
+        <div class="col-xs-12 col-sm-4">
+          <% picture = animal.photo.present? ? animal.photo : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+
+          <div class="card" style="background-image: linear-gradient(rgba(239, 232, 232, 0.21), rgba(244, 244, 244, 0.4)), url('<%= picture %>');">
+
+    <!--   <div class="card-category">Cocktail</div> -->
+            <div class="card-description">
+              <h2>link_to animal.name, animal_path(animal)</h2>
+              <p><%= animal.price %></p>
+              <p><%= animal.category %></p>
+    <!--      <p>Very cool city, the best</p> -->
+            </div>
+          </div>
+        </div>
+
+    <%end%>
+
+  </div>
+</div>
+
 <%= link_to "Back home", animals_path %>
