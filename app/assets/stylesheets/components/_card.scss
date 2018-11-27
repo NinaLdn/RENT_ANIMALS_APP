@@ -5,6 +5,8 @@
   background-position: center;
   color: white;
   position: relative;
+  margin-bottom: 16px;
+  box-shadow: 3px;
 }
 .card-description {
   position: absolute;
@@ -41,4 +43,11 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.white-text {
+  color: white;
+}
+.white-text:hover {
+  color: white;
 }
