@@ -5,6 +5,5 @@
       method: :delete,
       data: { confirm: "Are you sure?" } %>
 
-<% @animal.bookings.select |booking| %>
-  <%= 'book now', link_to booking_path(booking)%>
-<% end %>
+<%= link_to "book", new_animal_booking_path(@animal) %>
+
