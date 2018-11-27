@@ -1,4 +1,4 @@
-<h3>Book <%= @animal.name %> for <%= @booking.total_price %></h3>
+<h3>Book for <%= @booking.total_price %></h3>
 <%= simple_form_for [animal, booking] do |f| %>
   <%= f.association :animal, :user %>
   <%= f.input :start_date %>
