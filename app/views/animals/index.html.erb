@@ -1,22 +1,23 @@
-<h1> All Animals</h1>
+
 
 <div class="container">
-  <div class="row" id="animalslist">
+  <h1> All Animals</h1>
+  <div class="row">
 
     <% @animals.each do |animal| %>
 
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-4 col-md-4">
           <% picture = animal.photo.present? ? animal.photo : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
 
-          <div class="card" style="background-image: linear-gradient(rgba(239, 232, 232, 0.21), rgba(244, 244, 244, 0.4)), url('<%= picture %>');">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= picture %>');">
 
-    <!--   <div class="card-category">Cocktail</div> -->
             <div class="card-description">
-              <h2>link_to animal.name, animal_path(animal)</h2>
-              <p><%= animal.price %></p>
-              <p><%= animal.category %></p>
-    <!--      <p>Very cool city, the best</p> -->
+              <h2 style='font-size: 16px'><%=link_to animal.name, animal_path(animal), class: "white-text" %></h2>
             </div>
+            <div class="card-price">
+              <p><%= animal.price %> €</p>
+            </div>
+
           </div>
         </div>
 
