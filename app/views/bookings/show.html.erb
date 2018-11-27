@@ -1,0 +1,7 @@
+<h3>Book <%= @animal.name %> for <%= @booking.total_price %></h3>
+<%= simple_form_for [animal, booking] do |f| %>
+  <%= f.association :animal, :user %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
