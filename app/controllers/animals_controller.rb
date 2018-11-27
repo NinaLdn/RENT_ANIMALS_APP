@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
     @animals = Animal.all
@@ -29,8 +29,12 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    @animal = Animal.find(params[:id])
-    @animal.update(params[:animal])
+    #@animal = Animal.find(params[:id])
+    if @animal.update(animal_params)
+      redirect_to animal_path(@animal)
+    else
+      render :edit
+    end
   end
 
   def destroy
