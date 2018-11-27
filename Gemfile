@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.4.5'
 
 gem 'devise'
-gem "pundit"
+
 gem 'faker'
 
 gem 'dotenv-rails', groups: [:development, :test]
