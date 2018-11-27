@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
-  before_action :set_animal, only: [:show, :destroy]
+  before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
     #@animals = Animal.all
@@ -9,6 +9,7 @@ class AnimalsController < ApplicationController
 
   def show
     # @animal = Animal.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -33,14 +34,22 @@ class AnimalsController < ApplicationController
   end
 
   def update
-    @animal = Animal.find(params[:id])
-    @animal.update(params[:animal])
+    #@animal = Animal.find(params[:id])
+    if @animal.update(animal_params)
+      redirect_to animal_path(@animal)
+    else
+      render :edit
+    end
   end
 
   def destroy
     # @animal = Animal.find(params[:id])
     @animal.destroy
     redirect_to animals_path
+  end
+
+  def ads
+    @animals = Animal.where(user: current_user)
   end
 
   private
@@ -51,6 +60,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :category, :price, :description)
+    params.require(:animal).permit(:name, :category, :price, :description, :photo)
   end
 end
