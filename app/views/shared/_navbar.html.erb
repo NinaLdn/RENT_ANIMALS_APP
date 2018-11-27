@@ -11,7 +11,7 @@
 
       <!-- Links when logged in -->
       <%= link_to "Déposez une annonce", new_animal_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Annonces", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Annonces", ads_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Location", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
@@ -39,6 +39,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
+      <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
