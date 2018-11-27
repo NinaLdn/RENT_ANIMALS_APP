@@ -1,0 +1,22 @@
+<div class="container">
+<h1 class="text-center">New Animal</h1>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+      <%= simple_form_for animal do |f| %>
+        <%= f.input :name %>
+        <%= f.input :category %>
+        <%= f.input :price %>
+        <%= f.input :description %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <% link_text = animal.id.nil? ? "Add Animal" : "Edit Animal" %>
+        <%= f.submit link_text, class: "btn btn-success" %>
+      <%end%>
+<%= link_to animals_path do %>
+  <button class="btn btn_primary">Cancel</button>
+<%end%>
+
+    </div>
+  </div>
+</div>
