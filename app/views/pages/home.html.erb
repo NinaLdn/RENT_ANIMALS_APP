@@ -9,13 +9,21 @@
 <div class="container">
 <h2>Une séléction à ne pas manger</h2>
   <div class="row">
+    <% @animals.each do |animal| %>
     <div class="col-xs-12 col-sm-4 col-md-4">
       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?animal');">
           <div class="card-description">
-            <h2><%= 'papounet' %></h2>
+            <h2 style='font-size: 16px'><%= animal.name %></h2>
+          </div>
+          <div class="card-price">
+            <p><%= animal.price %></p>
+          </div>
+          <div class="card-category">
+            <p><%= animal.category %></p>
           </div>
           <%= link_to "lorem", '#', class: 'card-link' %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
