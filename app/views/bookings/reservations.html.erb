@@ -4,7 +4,7 @@
     <% @bookings.each do |booking| %>
 
         <div class="col-xs-12 col-sm-4 col-md-4">
-          <% picture = booking.animal.photo.present? ? animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+          <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
 
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("<%= picture %>");">
 
