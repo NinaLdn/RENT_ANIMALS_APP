@@ -7,6 +7,7 @@
           <% picture = animal.photo.present? ? animal.photo : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
 
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= picture %>');">
+            <%=link_to "", animal_path(animal), class: 'card-link' %>
 
             <div class="card-description">
               <h2 style='font-size: 16px'><%=link_to animal.name, animal_path(animal), class: "white-text" %></h2>
@@ -22,5 +23,3 @@
 
   </div>
 </div>
-
-<%= link_to "Back home", animals_path %>
