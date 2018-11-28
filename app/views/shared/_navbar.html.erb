@@ -4,7 +4,6 @@
     <%= image_tag "dog-solid.svg", height: 50 %>
   <% end %>
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
 
@@ -13,7 +12,7 @@
       <%= link_to " Mes Annonces", ads_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Mes Réservations", reservations_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <!-- Avatar with dropdown menu -->
+       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -38,7 +37,6 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
   </div>
@@ -55,4 +53,3 @@
     </div>
   </div>
 </div>
-
