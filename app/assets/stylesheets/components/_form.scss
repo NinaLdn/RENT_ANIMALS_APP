@@ -1,8 +1,38 @@
-.container {
-  background-color: white;
-  width:60%;
-  margin: 40px auto;
-  padding: 20px;
-  position:relative;
+.full-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+// FORM
+.my-form-container {
+  background-color: white;
+  // width:40%;
+  // margin: 40px auto;
+  margin: 0;
+  padding: 20px;
+  flex: 0 1 50%;
+  height: 100vh;
+  // position:relative;
+  // border-radius: 20px;
+  // float: left;
+  // height: 100%;
+}
+
+.text-center {
+  margin-bottom: 50px;
+  margin-top: 5px;
+}
+
+// PICTURE
+.picture-for-form{
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1497993950456-cdb57afd1cf1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9bb58b79f10b56c76ca797255880344e&auto=format&fit=crop&w=800&q=60');
+  background-size: cover;
+  background-position: center;
+  // background-repeat: no-repeat;
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  flex: 0 1 50%;
 }
