@@ -18,10 +18,10 @@ class BookingsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @booking = Booking.new(booking_params)
     @booking.animal = @animal
-    # bug au niveau du @booking.save
-    raise
-    if @booking.save
+    @booking.user = current_user
+    if @booking.save!
       redirect_to animal_path(@animal)
+      flash[:notice] = "Booking successfull"
     else
       render 'new'
     end

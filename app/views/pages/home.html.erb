@@ -1,13 +1,15 @@
 
 <div class="banner" style="background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vm8N8ry5eikbknln4/group-of-pet-on-a-white-background_bn6ftfvg__F0000.png');">
   <div class="banner-content">
-    <h1 style = 'padding:30px'>The Airbnb for Pets</h1>
+    <h1 style = 'padding:30px'>Les plus belles chattes du web</h1>
+    <p style='color:black'>Oubliez le dating. Découvrez le petting</p>
     <%= link_to 'cuddle now', animals_path, class: "btn btn-success" %>
   </div>
 </div>
 
 <div class="container-home", style='min-height:100vh ; padding : 10px'>
-<h2 style='text-align:center ; font-size : 30px; margin-top: 5px; margin-bottom: 50px'>Une séléction à ne pas manger</h2>
+<h2 style='text-align:center ; font-size : 30px; margin-top: 5px; margin-bottom: 15px'>Une séléction à ne pas manger</h2>
+<p style='text-align:center ; font-size : 20px; margin-bottom: 50px'>Faites vous escorter sans vous faire juger.</p>
   <div class="row">
     <% @animals.each do |animal| %>
     <div class="col-xs-12 col-sm-4 col-md-4">
