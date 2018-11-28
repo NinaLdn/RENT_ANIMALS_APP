@@ -1,7 +1,9 @@
-<div class="container">
- <!-- Inject the grid here -->
-  <div class="row">
-    <div class="col-md-6">
+
+
+<div class="wrapper">
+  <div class="animal-container">
+
+    <div class="animal-description">
       <h1><%= @animal.name %></h1>
       <p><%= @animal.description %></p>
       <p><%= @animal.price %> €</p>
@@ -11,11 +13,15 @@
             data: { confirm: "Are you sure?" } %>
       <%= link_to "Book now", new_animal_booking_path(@animal) %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <%= cl_image_tag @animal.photo, height: 300, width: 400, crop: :fill %>
+
+    <div class="animal-picture">
+
+      <%= cl_image_tag @animal.photo, crop: :fill, class: "picture-of-the-animal" %>
+
     </div>
+
   </div>
   <%= link_to "Back Index", animals_path %>
 </div>
+
+

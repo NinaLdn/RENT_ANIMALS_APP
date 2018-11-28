@@ -1,0 +1,40 @@
+.wrapper {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.animal-container {
+  display: flex;
+  // grid-template-columns: 500px 1fr;
+  // grid-template-rows: 100%;
+  margin-left: 8px;
+  margin-right: 8px;
+  width: 100%;
+  padding: 10px 10px 0px 10px;
+}
+
+.animal-description {
+  background-color: #F2F2F2;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  width: 33.33333333333333% !important;
+  float: left !important;
+  height: 536px !important;
+  // margin: 0 8px;
+}
+
+.animal-picture{
+  width: 66.66666666666666% !important;
+  margin: 0 8px;
+}
+
+.picture-of-the-animal {
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  float: left !important;
+  height: 536px !important;
+  display: block;
+  // width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
