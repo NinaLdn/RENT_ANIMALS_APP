@@ -10,6 +10,9 @@
 }
 
 .animal-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #F2F2F2;
   border-radius: 2px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -17,6 +20,14 @@
   float: left !important;
   height: 536px !important;
   border: 1px solid #ecebeb;
+}
+
+.animal-description-top{
+  margin: 10px;
+}
+
+.animal-description-bottom {
+  margin: 10px;
 }
 
 .animal-description h1{
@@ -39,3 +50,9 @@
   height: 100vh;
   object-fit: cover;
 }
+
+
+
+
+
+
