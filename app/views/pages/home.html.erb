@@ -11,19 +11,20 @@
   <div class="row">
     <% @animals.each do |animal| %>
     <div class="col-xs-12 col-sm-4 col-md-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?animal');">
+
+      <div class="card card-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?animal');">
+        <%=link_to "", animal_path(animal), class: 'card-link' %>
           <div class="card-description">
-            <h2 style='font-size: 16px'><%= animal.name %></h2>
+            <p><%= animal.category %></p>
+            <h2 style='font-size: 16px'><%=link_to animal.name, animal_path(animal), class: "white-text" %></h2>
           </div>
           <div class="card-price">
             <p><%= animal.price %> €</p>
           </div>
-          <div class="card-category">
-            <p><%= animal.category %></p>
-          </div>
-        <%= link_to "lorem", animal_path(animal), class: 'card-link' %>
+
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
