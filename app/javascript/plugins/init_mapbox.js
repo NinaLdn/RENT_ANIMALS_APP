@@ -16,23 +16,12 @@ const fitMapToMarkers = (map, markers) => {
       style: 'mapbox://styles/vincentbrass/cjp10ue7p0rce2sp5kbcywt7w'
     });
     const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-      new mapboxgl.Marker()
-          .setLngLat([ marker.lng, marker.lat ])
-          .addTo(map);
-  }
-  fitMapToMarkers(map, markers);
+markers.forEach((marker) => {
+  new mapboxgl.Marker()
+  .setLngLat([ marker.lng, marker.lat ])
+  .setPopup(popup)
+  .addTo(map);
+  });
+fitMapToMarkers(map, markers);
+}
 };
-
-    const addMarkersToMap = (map, markers) => {
-    markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-        new mapboxgl.Marker()
-          .setLngLat([ marker.lng, marker.lat ])
-          .setPopup(popup)
-          .addTo(map);
-        });
-    };
-
-export { initMapbox };
