@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
   end
 
   def reservations
+    # @animal = Animal.find(params[:animal_id])
     @bookings = Booking.where(user: current_user)
   end
 

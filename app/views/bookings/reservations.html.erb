@@ -6,7 +6,8 @@
         <div class="col-xs-12 col-sm-4 col-md-4">
           <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
 
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url("<%= picture %>");">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= picture %>);">
+
 
             <div class="card-description">
               <h2 style='font-size: 16px'><%=link_to booking.animal.name, animal_path(booking.animal), class: "white-text" %></h2>
@@ -19,8 +20,3 @@
         </div>
 
     <%end%>
-
-  </div>
-  <%= link_to "Back home", animals_path %>
-</div>
-
