@@ -1,12 +1,21 @@
-<h1><%= @animal.name %></h1>
-<p><%= @animal.description %></p>
-<p><%= @animal.price %> €</p>
-<%= cl_image_tag @animal.photo, height: 300, width: 400, crop: :fill %>
-<%= link_to "Delete", animal_path(@animal),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-<%= link_to "Back Index", animals_path %>
-<%= link_to "Edit", edit_animal_path(@animal) %>
-
-<%= link_to "book", new_animal_booking_path(@animal) %>
-
+<div class="container">
+ <!-- Inject the grid here -->
+  <div class="row">
+    <div class="col-md-6">
+      <h1><%= @animal.name %></h1>
+      <p><%= @animal.description %></p>
+      <p><%= @animal.price %> €</p>
+      <%= link_to "Edit", edit_animal_path(@animal) %>
+      <%= link_to "Delete", animal_path(@animal),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+      <%= link_to "Book now", new_animal_booking_path(@animal) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= cl_image_tag @animal.photo, height: 300, width: 400, crop: :fill %>
+    </div>
+  </div>
+  <%= link_to "Back Index", animals_path %>
+</div>
