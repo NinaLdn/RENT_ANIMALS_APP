@@ -1,13 +1,13 @@
 
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://i.kym-cdn.com/entries/icons/original/000/002/391/annBL.jpg');">
+<div class="banner" style="background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/Vm8N8ry5eikbknln4/group-of-pet-on-a-white-background_bn6ftfvg__F0000.png');">
   <div class="banner-content">
-    <h1>The Airbnb for Pets</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, voluptas.</p>
+    <h1 style = 'padding:30px'>The Airbnb for Pets</h1>
+    <%= link_to 'cuddle now', animals_path, class: "btn btn-success" %>
   </div>
 </div>
 
-<div class="container">
-<h2>Une séléction à ne pas manger</h2>
+<div class="container-home", style='min-height:100vh ; padding : 10px'>
+<h2 style='text-align:center ; font-size : 30px; margin-top: 5px; margin-bottom: 50px'>Une séléction à ne pas manger</h2>
   <div class="row">
     <% @animals.each do |animal| %>
     <div class="col-xs-12 col-sm-4 col-md-4">
