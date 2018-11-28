@@ -6,8 +6,8 @@ class AnimalsController < ApplicationController
     @animals = Animal.where.not(latitude: nil, longitude: nil)
     @markers = @animals.map do |animal|
       {
-        lng: flat.longitude,
-        lat: flat.latitude,
+        lng: animal.longitude,
+        lat: animal.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
       }
     end
@@ -63,6 +63,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :category, :price, :description, :photo)
+    params.require(:animal).permit(:name, :category, :price, :description, :photo, :address)
   end
 end
