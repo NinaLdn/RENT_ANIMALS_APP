@@ -3,6 +3,14 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+    @animals = Animal.where.not(latitude: nil, longitude: nil)
+    @markers = @animals.map do |animal|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
+      }
+    end
   end
 
   def show
