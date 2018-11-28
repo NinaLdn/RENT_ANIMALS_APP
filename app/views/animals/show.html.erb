@@ -7,10 +7,12 @@
       <p><%= @animal.description %></p>
       <p><%= @animal.price %> €/jour</p>
       <%= link_to "Book now", new_animal_booking_path(@animal), {:class => "button_book_now"} %>
+      <% if current_user == @animal.user %>
       <%= link_to "Edit", edit_animal_path(@animal) %>
       <%= link_to "Delete", animal_path(@animal),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
+      <% end %>
     </div>
 
     <div class="animal-picture">
@@ -22,5 +24,4 @@
   </div>
   <%= link_to "Back Index", animals_path %>
 </div>
-
 
