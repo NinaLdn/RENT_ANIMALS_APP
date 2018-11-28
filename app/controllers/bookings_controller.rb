@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :set_booking, only: [:show, :new, :create, :destroy, :create]
+  # before_action :set_booking, only: [:show, :create, :destroy, :create]
 
   def index
     @bookings = Booking.all
@@ -18,6 +18,8 @@ class BookingsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @booking = Booking.new(booking_params)
     @booking.animal = @animal
+    # bug au niveau du @booking.save
+    raise
     if @booking.save
       redirect_to animal_path(@animal)
     else
@@ -29,6 +31,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to animals_path
+  end
+
+  def reservations
+    @bookings = Booking.where(user: current_user)
   end
 
   private
