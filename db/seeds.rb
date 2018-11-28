@@ -14,7 +14,6 @@ puts 'Creating 100 fake users...'
   user = User.new(
     first_name: Faker::Name.first_name,
     second_name: Faker::Name.last_name,
-    address: "#{Faker::Address.street_address}, #{Faker::Address.city}",
     password: Faker::Internet.password,
     email: Faker::Internet.email
   )
@@ -31,7 +30,8 @@ puts 'Creating 30 fake animals...'
     name: Faker::Name.first_name,
     category: Faker::Dog.breed,
     price: Faker::Commerce.price,
-    user_id: User.all.sample.id
+    user_id: User.all.sample.id,
+    address: "#{Faker::Address.street_address}, #{Faker::Address.city}"
   )
   animal.save!
 end

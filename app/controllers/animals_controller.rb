@@ -4,10 +4,11 @@ class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
     @animals = Animal.where.not(latitude: nil, longitude: nil)
-    @animals = @animals.map do |animal|
+    @markers = @animals.map do |animal|
       {
         lng: flat.longitude,
-        lat: flat.latitude
+        lat: flat.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
       }
     end
   end
