@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  # before_action :set_booking, only: [:show, :create, :destroy, :create]
+  # before_action :set_booking, only: [:accept_booking]
 
   def index
     @bookings = Booking.all
@@ -26,6 +26,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def accept_booking
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: params[:status])
+    redirect_to ads_animals_path
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -44,7 +50,7 @@ class BookingsController < ApplicationController
   # end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :animal_id, :user_id, :total_price)
+    params.require(:booking).permit(:start_date, :end_date, :animal_id, :user_id, :total_price, :status)
   end
 
 end
