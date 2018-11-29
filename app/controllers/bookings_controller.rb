@@ -15,13 +15,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @animal = Animal.find(params[:animal_id])
     @booking = Booking.new(booking_params)
-    @booking.animal = @animal
+    @booking.animal.id = booking_params[:animal_id]
     @booking.user = current_user
-    if @booking.save!
-      redirect_to animal_path(@animal)
-      flash[:notice] = "Booking successfull"
+    if @booking.save
+      redirect_to reservations_animals_path
+      flash[:notice] = "your booking for was successfull"
     else
       render 'new'
     end
@@ -44,7 +43,7 @@ class BookingsController < ApplicationController
   # end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price, :animal_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :animal_id, :user_id, :total_price)
   end
 
 end
