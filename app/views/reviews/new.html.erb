@@ -1,0 +1,25 @@
+<div class="full-container">
+
+  <div class="my-form-container">
+    <% form_title = "Add a Review for #{@booking.animal.name}" %>
+    <h1 class="text-center"><%=form_title%></h1>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+
+        <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.select :rating, Review::RATING %>
+        <%= f.input :content %>
+        <% link_text = "Add review" %>
+        <%= f.submit link_text, class: "btn btn-success" %>
+        <%end%>
+
+        <%= link_to animals_path do %>
+        <button class="btn btn_primary">Cancel</button>
+        <%end%>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="picture-for-form-review"></div>
+</div>

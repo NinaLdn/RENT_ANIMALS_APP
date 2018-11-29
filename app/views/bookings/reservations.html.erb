@@ -8,6 +8,14 @@
 
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= picture %>);">
 
+            <div>
+              <%= link_to "Add review", new_booking_review_path(booking), class: "btn btn-success" %>
+            </div>
+
+            <div class="reviews">
+              <%= booking.reviews.last.content unless booking.reviews.empty? %>
+            </div>
+
 
             <div class="card-description">
               <h2 style='font-size: 16px'><%=link_to booking.animal.name, animal_path(booking.animal), class: "white-text" %></h2>
