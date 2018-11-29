@@ -1,22 +1,37 @@
+
 <div class="container">
-  <h1> Més Réservations</h1>
+  <div class="big-title">
+    <h1> All your bookings</h1>
+  </div>
+
   <div class="row">
     <% @bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-4 col-md-4">
 
-        <div class="col-xs-12 col-sm-4 col-md-4">
+        <div class="card-resa">
+
+
           <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
-
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= picture %>);">
-
-
-            <div class="card-description">
-              <h2 style='font-size: 16px'><%=link_to booking.animal.name, animal_path(booking.animal), class: "white-text" %></h2>
+          <img class="card-img-top" src="<%= picture %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
+            <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
+            <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
+          </div>
+          <div class="card-body-bottom">
+            <div>
+              <%= link_to "More info", animal_path(booking.animal), class: "link-card-resa" %>
             </div>
-            <div class="card-price">
-              <p><%= booking.animal.price %> €</p>
+            <div>
+              <%= link_to "Add review", animal_path(booking.animal), class: "link-card-resa" %>
             </div>
 
           </div>
+
+
         </div>
 
+      </div>
     <%end%>
+  </div>
+</div>

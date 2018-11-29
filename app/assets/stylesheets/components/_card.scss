@@ -60,3 +60,69 @@
 .card-home {
   height: 300px;
 }
+
+.card-img-top {
+    width: 100%;
+}
+
+// POUR LES CARDS DES RESERVATIONS
+
+.card-resa {
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin-bottom: 16px;
+  box-shadow: 3px;
+  background: white;
+  height: inherit;
+  box-shadow: 1px 1px 10px 1px #888888;
+}
+
+
+.card-body{
+  font-size: 16px;
+  color: #555;
+  text-shadow: 0;
+
+}
+
+.title-resa{
+  font-weight: bold;
+}
+
+.link-card-resa{
+  color: #1e3c88;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.link-card-resa:hover{
+  color: #1e3c88;
+  opacity: 0.1;
+  text-decoration: none;
+}
+
+
+
+
+.card-body-bottom {
+
+}
+
+.card-title.description {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
