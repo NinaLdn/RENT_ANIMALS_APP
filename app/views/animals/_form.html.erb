@@ -15,7 +15,7 @@
         <%= f.input :photo %>
         <%= f.input :photo_cache, as: :hidden %>
         <% link_text = animal.id.nil? ? "Add Animal" : "Edit Animal" %>
-        <%= f.submit link_text, class: "btn btn-success" %>
+        <%= f.submit link_text, class: "btn-hover color-1" %>
         <%end%>
 
         <%= link_to animals_path do %>
