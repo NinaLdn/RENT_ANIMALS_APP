@@ -2,20 +2,36 @@ class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @animals = Animal.all
-    @animals_geocoded = Animal.where.not(latitude: nil, longitude: nil)
-    @markers = @animals_geocoded.map do |animal|
+    if params[:query].present?
+      sql_query = " \
+        animals.category ILIKE :query \
+        OR animals.description ILIKE :query \
+        OR animals.name ILIKE :query \
+      "
+      @animals = Animal.where(sql_query, query: "%#{params[:query]}%").where.not(latitude: nil, longitude: nil)
+      @markers = @animals.map do |animal|
       {
         lng: animal.longitude,
         lat: animal.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
       }
+      end
+    else
+      @animals = Animal.where.not(latitude: nil, longitude: nil)
+      @markers = @animals.map do |animal|
+        {
+          lng: animal.longitude,
+          lat: animal.latitude,
+          infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
+        }
+      end
     end
   end
 
   def show
     # @animal = Animal.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
   end
 
   def new

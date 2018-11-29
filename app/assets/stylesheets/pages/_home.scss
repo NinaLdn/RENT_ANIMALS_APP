@@ -1,1 +1,21 @@
 // Specific CSS for your home-page
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 92vh;
+}
+
+.banner h1 {
+  color: white
+}
+.banner p {
+  color: white
+}
+
+.search-bar-home {
+  width: 450px;
+  margin: 70px;
+}
+

@@ -25,7 +25,7 @@
 }
 
 // PICTURE
-.picture-for-form{
+.picture-for-form-edit-new{
   height: 100vh;
   background-image: url('https://images.unsplash.com/photo-1497993950456-cdb57afd1cf1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9bb58b79f10b56c76ca797255880344e&auto=format&fit=crop&w=800&q=60');
   background-size: cover;
@@ -36,3 +36,29 @@
   // bottom: 0;
   flex: 0 1 50%;
 }
+
+.picture-for-form-booking{
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/photo-1520315342629-6ea920342047?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b002426bc9e7b807f0665e407e9cf8f6&auto=format&fit=crop&w=800&q=60');
+  background-size: cover;
+  background-position: center;
+  // background-repeat: no-repeat;
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  flex: 0 1 50%;
+}
+
+.picture-for-form-review{
+  height: 100vh;
+  background-image: url('https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f729eb52d41d8915bae7ac30c23b63b8&auto=format&fit=crop&w=800&q=60');
+  background-size: cover;
+  background-position: center;
+  // background-repeat: no-repeat;
+  // position: absolute;
+  // right: 0;
+  // bottom: 0;
+  flex: 0 1 50%;
+}
+
+
