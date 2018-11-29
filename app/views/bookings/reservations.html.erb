@@ -24,6 +24,16 @@
               <p><%= booking.animal.price %> €</p>
             </div>
 
+            <div class="card-status">
+              <% if booking.status.nil? %>
+                <p style='color:yellow'>pending</p>
+              <% elsif booking.status == true %>
+                <p style='color:green'>confirmed</p>
+              <% else %>
+                <p style='color:red'>declined</p>
+              <% end %>
+            </div>
+
           </div>
         </div>
 

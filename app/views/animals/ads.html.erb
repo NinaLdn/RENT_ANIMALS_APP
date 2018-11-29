@@ -1,8 +1,10 @@
+
 <div class="wrapper-ads">
   <div class="container">
     <h1> My Ads</h1>
     <div class="row">
       <% @animals.each do |animal| %>
+
 
           <div class="col-xs-12 col-sm-4 col-md-4">
             <% picture = animal.photo.present? ? animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
@@ -19,11 +21,44 @@
 
             </div>
           </div>
-
       <%end%>
 
     </div>
   </div>
+
+  <h1>Demandes de réservations</h1>
+  <% current_user.bookings_as_owner.each do |booking| %>
+    <div class='message'>
+      <div class='message-title'>
+        <h4>lorem ipsum</h1>
+      </div>
+      <div class='message-body'>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae aperiam dolores, quibusdam?</p>
+      </div>
+
+      <div class ='message-buttons'>
+        <%= link_to 'accept', booking_accept_booking_path(booking, status: true),
+          method: 'patch',
+          class:'btn btn-success' %>
+        <%= link_to 'decline', booking_accept_booking_path(booking, status: false),
+          method: 'patch',
+          class:'btn btn-danger' %>
+      </div>
+
+      <div class='message-status'>
+        <p>status</p>
+        <% if booking.status.nil? %>
+          <p style='color:yellow'>pending</p>
+        <% elsif booking.status == true %>
+          <p style='color:green'>confirmed</p>
+        <% else %>
+          <p style='color:red'>declined</p>
+        <% end %>
+      </div>
+
+    </div>
+    <% end %>
+
 </div>
 
 
