@@ -1,33 +1,56 @@
 .wrapper {
-  background-color: white;
-  min-height: 100vh;
+  // background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=background-blur-clean-531880.jpg&fm=jpg');
+  background-image: linear-gradient(to right bottom, #e7e7e7, #e5ebf3, #daf1fd, #cef9fc, #ccffef);
+  background-size: cover;
+  padding: 40px 40px 40px 40px;
 }
 
 .animal-container {
   display: flex;
   width: 100%;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 10px 10px 10px;
+  background-color: white;
+  border-radius: 3px;
+  justify-content: space-between;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
 .animal-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #F2F2F2;
+  // background-image: linear-gradient(to right bottom, #e7e7e7, #e5ebf3, #daf1fd, #cef9fc, #ccffef);
+  background-size: cover;
   border-radius: 2px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  width: 33.33333333333333% !important;
+  // box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  width: 100% !important;
   float: left !important;
   height: 536px !important;
-  border: 1px solid #ecebeb;
+  margin: 10px;
 }
 
 .animal-description-top{
-  margin: 10px;
+  // margin: 10px;
 }
 
 .animal-description-bottom {
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.animal-price-book {
+  display: flex;
+  flex-direction: row;
+  a {
+    text-decoration: none;
+    padding-top: 16px;
+  }
+  p {
+    padding-top: 35px;
+    font-size: 20px;
+    // font-weight: bold;
+  }
 }
 
 .animal-description h1{
@@ -36,8 +59,10 @@
 }
 
 .animal-picture{
-  width: 66.66666666666666% !important;
-  margin: 0 6px;
+  width: 100% !important;
+  margin: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  // margin: 0 6px;
 }
 
 .picture-of-the-animal {
