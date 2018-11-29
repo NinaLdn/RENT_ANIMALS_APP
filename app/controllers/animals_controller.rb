@@ -8,19 +8,17 @@ class AnimalsController < ApplicationController
         OR animals.description ILIKE :query \
         OR animals.name ILIKE :query \
       "
-      @animals_geocoded = Animal.where.not(latitude: nil, longitude: nil)
-      @markers = @animals_geocoded.map do |animal|
+      @animals = Animal.where(sql_query, query: "%#{params[:query]}%").where.not(latitude: nil, longitude: nil)
+      @markers = @animals.map do |animal|
       {
         lng: animal.longitude,
         lat: animal.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
       }
       end
-      @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
     else
-      @animals = Animal.all
-      @animals_geocoded = Animal.where.not(latitude: nil, longitude: nil)
-      @markers = @animals_geocoded.map do |animal|
+      @animals = Animal.where.not(latitude: nil, longitude: nil)
+      @markers = @animals.map do |animal|
         {
           lng: animal.longitude,
           lat: animal.latitude,
