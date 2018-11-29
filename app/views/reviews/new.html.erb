@@ -1,16 +1,16 @@
 <div class="full-container">
 
   <div class="my-form-container">
-    <% form_title = "Book #{@animal.name} for #{@booking.total_price}€ " %>
+    <% form_title = "Add a Review for #{@booking.animal.name}" %>
     <h1 class="text-center"><%=form_title%></h1>
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
 
-        <%= simple_form_for [@animal, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <% link_text = "Book now" %>
-        <%= f.submit link_text, class: "btn btn-success" %>
+        <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.select :rating, Review::RATING %>
+        <%= f.input :content %>
+        <% link_text = "Add review" %>
+        <%= f.submit link_text, class: "btn-hover color-1" %>
         <%end%>
 
         <%= link_to animals_path do %>
@@ -21,6 +21,5 @@
     </div>
 
   </div>
-  <div class="picture-for-form-booking"></div>
+  <div class="picture-for-form-review"></div>
 </div>
-

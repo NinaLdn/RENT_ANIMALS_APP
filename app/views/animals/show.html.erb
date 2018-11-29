@@ -11,6 +11,7 @@
       <div class="animal-description-bottom">
         <p><%= @animal.price %> €/jour</p>
         <%= link_to "Book now", new_animal_booking_path(@animal), class: "btn btn-success" %>
+
         <% if current_user == @animal.user %>
         <%= link_to "Edit", edit_animal_path(@animal), class: "btn btn-info" %>
         <%= link_to "Delete", animal_path(@animal),
