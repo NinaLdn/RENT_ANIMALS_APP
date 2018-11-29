@@ -1,6 +1,13 @@
 <div class="wrapper">
   <div class="animal-container">
 
+
+    <div class="animal-picture">
+
+      <%= cl_image_tag @animal.photo, crop: :fill, class: "picture-of-the-animal" %>
+
+    </div>
+
     <div class="animal-description">
 
       <div class="animal-description-top">
@@ -9,28 +16,38 @@
       </div>
 
       <div class="animal-description-bottom">
-        <p><%= @animal.price %> €/jour</p>
 
-        <%= link_to "Book now", new_animal_booking_path(@animal), class: "btn btn-success" %>
+        <div class="animal-price-book">
 
-        <% if current_user == @animal.user %>
-        <%= link_to "Edit", edit_animal_path(@animal), class: "btn btn-info" %>
+            <p><%= @animal.price %> €/jour</p>
 
-        <%= link_to "Delete", animal_path(@animal),
-              method: :delete,
-              data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
-        <% end %>
+            <%= link_to "Book now", new_animal_booking_path(@animal), class: "btn-hover color-1" %>
+
+        </div>
+
+        <div class="animal-edit-delete">
+          <% if current_user == @animal.user %>
+          <%= link_to "Edit", edit_animal_path(@animal), class: "btn btn-info" %>
+          <%= link_to "Delete", animal_path(@animal),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
       </div>
 
 
     </div>
-
-    <div class="animal-picture">
-
-      <%= cl_image_tag @animal.photo, crop: :fill, class: "picture-of-the-animal" %>
-
-    </div>
-
   </div>
   <%= link_to "Back Index", animals_path, class: "btn btn-primary" %>
 </div>
