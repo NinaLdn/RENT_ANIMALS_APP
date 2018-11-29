@@ -12,5 +12,11 @@ Rails.application.routes.draw do
       get 'reservations', to: "bookings#reservations"  # RestaurantsController#top
     end
   end
+  resources :reviews, only: [:destroy]
+  resources :bookings, only: [:index] do
+    resources :reviews, only: [:new, :create]
+  end
 end
+
+
 

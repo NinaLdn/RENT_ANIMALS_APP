@@ -8,19 +8,17 @@ class AnimalsController < ApplicationController
         OR animals.description ILIKE :query \
         OR animals.name ILIKE :query \
       "
-      @animals_geocoded = Animal.where.not(latitude: nil, longitude: nil)
-      @markers = @animals_geocoded.map do |animal|
+      @animals = Animal.where(sql_query, query: "%#{params[:query]}%").where.not(latitude: nil, longitude: nil)
+      @markers = @animals.map do |animal|
       {
         lng: animal.longitude,
         lat: animal.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { animal: animal })
       }
       end
-      @animals = Animal.where(sql_query, query: "%#{params[:query]}%")
     else
-      @animals = Animal.all
-      @animals_geocoded = Animal.where.not(latitude: nil, longitude: nil)
-      @markers = @animals_geocoded.map do |animal|
+      @animals = Animal.where.not(latitude: nil, longitude: nil)
+      @markers = @animals.map do |animal|
         {
           lng: animal.longitude,
           lat: animal.latitude,
@@ -33,6 +31,7 @@ class AnimalsController < ApplicationController
   def show
     # @animal = Animal.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
   end
 
   def new
@@ -80,6 +79,6 @@ class AnimalsController < ApplicationController
   end
 
   def animal_params
-    params.require(:animal).permit(:name, :category, :price, :description, :photo, :address)
+    params.require(:animal).permit(:name, :category, :description, :price, :photo, :address)
   end
 end

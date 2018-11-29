@@ -1,5 +1,4 @@
 .card {
-
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -7,7 +6,8 @@
   color: white;
   position: relative;
   margin-bottom: 16px;
-  box-shadow: 3px;
+  box-shadow: 2px 2px 5px 2px #9b9b9b;
+  border-radius: 5px;
 }
 
 .card-description {
@@ -81,9 +81,10 @@
 
 
 .card-body{
-  font-size: 16px;
+  font-size: 13px;
   color: #555;
   text-shadow: 0;
+  padding: 10px;
 
 }
 
@@ -91,37 +92,72 @@
   font-weight: bold;
 }
 
-.link-card-resa{
+.link-card-resa-info{
   color: #1e3c88;
   text-decoration: none;
   font-size: 15px;
 }
 
-.link-card-resa:hover{
+.link-card-resa-info:hover{
   color: #1e3c88;
   opacity: 0.1;
   text-decoration: none;
 }
 
+.link-card-resa-review{
+  color: #f29625;
+  text-decoration: none;
+  font-size: 15px;
+}
 
+.link-card-resa-review:hover{
+  color: #f29625;
+  opacity: 0.1;
+  text-decoration: none;
+}
 
 
 .card-body-bottom {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 1px 1px #888888;
 
 }
 
-.card-title.description {
+.card-body-bottom-last{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 1px 1px #888888;
 
+  text-decoration: none;
+  font-size: 15px;
 }
 
+.review-exist{
 
+}
+.description-resa{
+  font-size: 15px;
+}
 
+.review-exist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.orange-font {
+color: #f29625;
+}
 
+.card-img-top{
 
-
-
-
+}
 
 
 

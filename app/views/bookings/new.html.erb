@@ -1,26 +1,49 @@
 <div class="full-container">
 
   <div class="my-form-container">
-    <% form_title = "Book #{@animal.name} for #{@booking.total_price}€ " %>
+    <% form_title = "Book #{@animal.name}" %>
     <h1 class="text-center"><%=form_title%></h1>
     <div class="row">
       <div class="col-xs-12 col-md-6 col-md-offset-3">
 
+      <div class='form-js'>
         <%= simple_form_for [@animal, @booking] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <% link_text = "Book now" %>
-        <%= f.submit link_text, class: "btn btn-success" %>
+        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.hidden_field :total_price, value: @animal.price %>
+        <%= f.hidden_field :animal_id, value: @animal.id %>
+        <input type="button", value="Réserver", id="mybtn", class="button-book btn btn-primary", data-target="#bookingModal" data-toggle="modal">
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="color:white">
+              <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel" style="text-align:center; font-size:25px; font-weight:bold">Confirmez votre réservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h5>Votre réservation: <strong> <%= @animal.name %></strong></h5>
+                <h5 id="booking-time"> au </h5>
+                <h5 id="booking-price" >Prix total: </h5>
+              </div>
+              <div class="modal-footer" style="justify-content: center">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color:black">Close</button>
+                <%= f.button :submit, 'Réserver maintenant', class:"btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
         <%end%>
+      </div>
 
-        <%= link_to animals_path do %>
-        <button class="btn btn_primary">Cancel</button>
-        <%end%>
+
 
       </div>
     </div>
 
   </div>
-  <div class="picture-for-form"></div>
+  <div class="picture-for-form-booking"></div>
 </div>
+
 
