@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: [:accept_booking]
+  skip_after_action :verify_authorized, only: :reservations
 
   def index
     @bookings = Booking.all

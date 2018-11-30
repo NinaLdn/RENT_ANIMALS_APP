@@ -1,7 +1,9 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: [:show, :edit, :update, :destroy]
+  skip_after_action :verify_authorized, only: :ads
 
   def index
+    @animal = policy_scope(Animal)
     if params[:query].present?
       sql_query = " \
         animals.category ILIKE :query \
@@ -32,15 +34,18 @@ class AnimalsController < ApplicationController
     # @animal = Animal.find(params[:id])
     @booking = Booking.new
     @review = Review.new
+    authorize @animal
   end
 
   def new
     @animal = Animal.new
+    authorize @animal
   end
 
   def create
     @animal = Animal.new(animal_params)
     @animal.user = current_user
+    authorize @animal
     if @animal.save
       # to do
       redirect_to animals_path
