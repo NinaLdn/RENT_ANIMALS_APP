@@ -1,5 +1,14 @@
 class ReviewsController < ApplicationController
 
+
+  skip_after_action :verify_policy_scoped, only: [:index]
+
+  def index
+    @animal = Animal.find(params[:animal_id])
+    # @reviews = Review.all
+    # authorize @reviews
+  end
+
   def new
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
@@ -14,7 +23,7 @@ class ReviewsController < ApplicationController
     authorize @review
     if @review.save!
       redirect_to reservations_animals_path
-      flash[:notice] = "Posted"
+      flash[:notice] = "Merci pour votre avis"
     else
       render 'new'
     end

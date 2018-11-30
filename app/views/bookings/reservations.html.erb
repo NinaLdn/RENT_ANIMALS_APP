@@ -6,6 +6,7 @@
 
   <div class="row">
     <% @bookings.each do |booking| %>
+    <% if booking.end_date > Date.today %>
       <div class="col-xs-12 col-sm-4 col-md-4">
 
         <div class="card-resa">
@@ -70,6 +71,7 @@
         </div>
 
       </div>
+      <%end%>
     <%end%>
   </div>
 

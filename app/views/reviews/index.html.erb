@@ -1,0 +1,25 @@
+<div class="wrapper-ads">
+  <div class="container">
+
+
+<%  @animal.bookings.each do |booking| %>
+<%= booking.reviews.each do |review| %>
+
+
+<h1>Vous avez <strong><%= pluralize booking.reviews.count, 'avis' %></strong></h1>
+  <% current_user.bookings_as_owner.each do |booking| %>
+    <div class='message'>
+      <div class='message-name'>
+        <h6>rating</h6>
+        <p><strong><%= review.rating %></strong></p>
+      </div>
+      <div class='message-body'>
+        <h6> avis </h6>
+        <p><%= review.content %></p>
+      </div>
+    </div>
+<% end %>
+<% end %>
+<% end %>
+</div>
+</div>
