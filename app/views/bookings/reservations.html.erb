@@ -1,11 +1,85 @@
 
 <div class="container">
   <div class="big-title">
-    <h1> All your bookings</h1>
+    <h1> Vos réservations à venir</h1>
   </div>
 
   <div class="row">
     <% @bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-4 col-md-4">
+
+        <div class="card-resa">
+
+          <div>
+            <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+            <img class="card-img-top" src="<%= picture %>" alt="Card image cap" style="max-height: 225px">
+          </div>
+          <div class="card-body-top">
+            <p>From <strong> <%= booking.start_date %> </strong></p>
+            <p>To <strong><%= booking.end_date %></strong></p>
+          </div>
+          <div class="card-body" style ="height: 200px">
+            <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
+            <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
+            <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
+            <div class="box-review-resa">
+            <div>
+              <p class="orange-font">Review</p>
+                <div class="review-exist">
+                  <% if [(booking.reviews.any?)]%>
+                    <% booking.reviews.each do |review| %>
+                      <p>- <%= review.content %></p>
+                <div>
+                  <%= link_to review_path(review), method: :delete do %>
+                    <%= image_tag "trash-alt-solid.svg", height: 15 %>
+                  <% end %>
+                </div>
+                    <%end%>
+                  <% else %>
+                    <p></p>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="card-body-bottom">
+            <div>
+              <%= link_to "More info", animal_path(booking.animal), class: "link-card-resa-info" %>
+            </div>
+            <div>
+              <% if (booking.end_date - Date.today > 0 && booking.status == true)%>
+                <p></p>
+              <% else %>
+              <%= link_to "Add review", new_booking_review_path(booking), class: "link-card-resa-review" %>
+              <% end %>
+            </div>
+
+            <div class="card-status">
+              <% if booking.status.nil? %>
+                <p style='color:yellow'>pending</p>
+              <% elsif booking.status == true %>
+                <p style='color:green'>confirmed</p>
+              <% else %>
+                <p style='color:red'>declined</p>
+              <% end %>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    <%end%>
+  </div>
+
+  <div class="big-title">
+    <h1> Vos dernières experiences - avant le <%= Date.today %></h1>
+  </div>
+
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <% if booking.end_date < Date.today %>
       <div class="col-xs-12 col-sm-4 col-md-4">
 
         <div class="card-resa">
@@ -41,24 +115,24 @@
           </div>
           <div class="card-body-bottom">
             <div>
-              <%= link_to "More info", animal_path(booking.animal), class: "link-card-resa-info" %>
-            </div>
-            <div>
-              <% if (booking.end_date - Date.today > 0)%>
-                <p></p>
-              <% else %>
-              <%= link_to "Add review", new_booking_review_path(booking), class: "link-card-resa-review" %>
-              <% end %>
-            </div>
+              <input type="button", value="Review", id="reviewbtn", class="button-book btn btn-primary", data-target="#reviewModal" data-toggle="modal">
+              <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content" style="color:white">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="bookingModalLabel" style="text-align:center; font-size:25px; font-weight:bold">Donnez votre avis</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <h5>Votre avis sur: <strong> <%= booking.animal.name %></strong></h5>
+                      <%= render 'reviews/new', booking: booking, review: @review %>
+                    </div>
 
-            <div class="card-status">
-              <% if booking.status.nil? %>
-                <p style='color:yellow'>pending</p>
-              <% elsif booking.status == true %>
-                <p style='color:green'>confirmed</p>
-              <% else %>
-                <p style='color:red'>declined</p>
-              <% end %>
+                  </div>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -66,6 +140,10 @@
         </div>
 
       </div>
+      <% end %>
     <%end%>
   </div>
+
+
+
 </div>
