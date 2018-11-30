@@ -1,29 +1,61 @@
+
 <div class="container">
-  <h1> Més Réservations</h1>
+  <div class="big-title">
+    <h1> All your bookings</h1>
+  </div>
+
   <div class="row">
     <% @bookings.each do |booking| %>
+      <div class="col-xs-12 col-sm-4 col-md-4">
 
-        <div class="col-xs-12 col-sm-4 col-md-4">
-          <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+        <div class="card-resa">
 
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= picture %>);">
-
-            <div>
-              <%= link_to "Add review", new_booking_review_path(booking), class: "btn btn-success" %>
-            </div>
 
             <div class="reviews">
               <%= booking.reviews.last.content unless booking.reviews.empty? %>
             </div>
 
-
-            <div class="card-description">
-              <h2 style='font-size: 16px'><%=link_to booking.animal.name, animal_path(booking.animal), class: "white-text" %></h2>
+          <div>
+            <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+            <img class="card-img-top" src="<%= picture %>" alt="Card image cap">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
+            <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
+            <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
+            <div class="box-review-resa">
+            <div>
+              <p class="orange-font">Review</p>
+                <div class="review-exist">
+                  <% if booking.reviews.any? %>
+                    <% booking.reviews.each do |review| %>
+                      <p>- <%= review.content %></p>
+                <div>
+                  <%= link_to review_path(review), method: :delete do %>
+                    <%= image_tag "trash-alt-solid.svg", height: 15 %>
+                  <% end %>
+                </div>
+                    <%end%>
+                  <% else %>
+                    <p></p>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <div class="card-price">
-              <p><%= booking.animal.price %> €</p>
-            </div>
 
+          </div>
+          <div class="card-body-bottom">
+            <div>
+              <%= link_to "More info", animal_path(booking.animal), class: "link-card-resa-info" %>
+            </div>
+            <div>
+              <% if booking.reviews.any? %>
+                <p></p>
+              <% else %>
+              <%= link_to "Add review", new_booking_review_path(booking), class: "link-card-resa-review" %>
+              <% end %>
+            </div>
+            
             <div class="card-status">
               <% if booking.status.nil? %>
                 <p style='color:yellow'>pending</p>
@@ -35,6 +67,10 @@
             </div>
 
           </div>
+
         </div>
 
+      </div>
     <%end%>
+  </div>
+</div>

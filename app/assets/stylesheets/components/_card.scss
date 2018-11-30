@@ -60,3 +60,105 @@
 .card-home {
   height: 300px;
 }
+
+.card-img-top {
+    width: 100%;
+}
+
+// POUR LES CARDS DES RESERVATIONS
+
+.card-resa {
+  background-size: cover !important;
+  background-position: center;
+  color: white;
+  position: relative;
+  margin-bottom: 16px;
+  box-shadow: 3px;
+  background: white;
+  height: inherit;
+  box-shadow: 1px 1px 10px 1px #888888;
+}
+
+
+.card-body{
+  font-size: 13px;
+  color: #555;
+  text-shadow: 0;
+  padding: 10px;
+
+}
+
+.title-resa{
+  font-weight: bold;
+}
+
+.link-card-resa-info{
+  color: #1e3c88;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.link-card-resa-info:hover{
+  color: #1e3c88;
+  opacity: 0.1;
+  text-decoration: none;
+}
+
+.link-card-resa-review{
+  color: #f29625;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.link-card-resa-review:hover{
+  color: #f29625;
+  opacity: 0.1;
+  text-decoration: none;
+}
+
+
+.card-body-bottom {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 1px 1px #888888;
+
+}
+
+.card-body-bottom-last{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  box-shadow: 1px 1px 1px 1px #888888;
+
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.review-exist{
+
+}
+.description-resa{
+  font-size: 15px;
+}
+
+.review-exist {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orange-font {
+color: #f29625;
+}
+
+.card-img-top{
+
+}
+
+
+
+
