@@ -14,7 +14,7 @@
         <%= f.hidden_field :total_price, value: @animal.price %>
         <%= f.hidden_field :animal_id, value: @animal.id %>
         <%= f.hidden_field :status%>
-        <input type="button", value="Réserver", id="mybtn", class="button-book btn btn-primary", data-target="#bookingModal" data-toggle="modal">
+        <input type="button", value="Réserver", id="mybtn", class="btn-hover color-1", data-target="#bookingModal" data-toggle="modal">
         <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="color:white">
@@ -30,8 +30,8 @@
                 <h5 id="booking-price" >Prix total: </h5>
               </div>
               <div class="modal-footer" style="justify-content: center">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="color:black">Close</button>
-                <%= f.button :submit, 'Réserver maintenant', class:"btn btn-primary" %>
+                <button type="button" class="btn-hover color-9" data-dismiss="modal" style="color:white">Close</button>
+                <%= f.button :submit, 'Réserver maintenant', class:"btn-hover color-1" %>
               </div>
             </div>
           </div>
