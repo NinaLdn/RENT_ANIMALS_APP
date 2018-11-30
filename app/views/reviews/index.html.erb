@@ -1,9 +1,8 @@
 <div class="wrapper-ads">
   <div class="container">
 
-
+<h1>Les Avis sur <%= @animal.name %></h1>
 <%  @animal.bookings.each do |booking| %>
-  <h1>Vous avez <strong><%= pluralize booking.reviews.count, 'avis' %></strong></h1>
   <% booking.reviews.each do |review| %>
       <div class='message'>
         <div class='message-name'>
