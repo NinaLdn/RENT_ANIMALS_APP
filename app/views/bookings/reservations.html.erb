@@ -10,10 +10,12 @@
       <div class="col-xs-12 col-sm-4 col-md-4">
 
         <div class="card-resa">
+            <%=link_to "", animal_path(booking.animal), class: 'card-link' %>
 
           <div>
             <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
             <img class="card-img-top" src="<%= picture %>" alt="Card image cap" style="max-height: 225px">
+
           </div>
 
           <div class="card-body" style ="height: 200px">
@@ -75,13 +77,19 @@
 
         <div class="card-resa">
 
+
           <div>
             <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+
             <img class="card-img-top" src="<%= picture %>" alt="Card image cap" style="max-height: 225px">
+
           </div>
+
           <div class="card-body" style ="height: 200px">
-            <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
+            <h5 class="card-title title-resa"><%=link_to booking.animal.name, animal_path(booking.animal) %></h5>
+
             <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
+
             <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
             <div class="box-review-resa">
 
