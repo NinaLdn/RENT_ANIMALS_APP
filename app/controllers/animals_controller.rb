@@ -31,10 +31,9 @@ class AnimalsController < ApplicationController
   end
 
   def show
-    # @animal = Animal.find(params[:id])
     @booking = Booking.new
     @review = Review.new
-    authorize @animal
+    authorize @animal # pas besoin ?
   end
 
   def new
@@ -55,22 +54,22 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    # @animal = Animal.find(params[:id])
+    authorize @animal # pas besoin ?
   end
 
   def update
-    #@animal = Animal.find(params[:id])
     if @animal.update(animal_params)
       redirect_to animal_path(@animal)
+      authorize @animal # pas besoin ?
     else
       render :edit
     end
   end
 
   def destroy
-    # @animal = Animal.find(params[:id])
     @animal.destroy
     redirect_to animals_path
+    authorize @animal # pas besoin ?
   end
 
   def ads

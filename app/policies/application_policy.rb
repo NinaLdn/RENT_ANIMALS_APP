@@ -12,7 +12,7 @@ class ApplicationPolicy
 
   def show?
     false
- end
+  end
 
   def create?
     true
@@ -20,36 +20,36 @@ class ApplicationPolicy
 
   def ads?
 
-  def new?
-    create?
+    def new?
+      create?
+    end
+
+    def update?
+      false
+    end
+
+    def edit?
+      update?
+    end
+
+    def destroy?
+      false
+    end
+
   end
 
-  def update?
-    false
-  end
+  class Scope
 
-  def edit?
-    update?
-  end
+    attr_reader :user, :scope
 
-  def destroy?
-    false
-  end
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
 
-end
-
-class Scope
-
-  attr_reader :user, :scope
-
-  def initialize(user, scope)
-    @user = user
-    @scope = scope
-  end
-
-  def resolve
-    scope.all
-  end
+    def resolve
+      scope.all
+    end
 
   end
 end

@@ -1,6 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :user
-  belongs_to :animal, dependent: :destroy
+  belongs_to :animal
   has_many :reviews
   validates :start_date, presence: true
   validates :end_date, presence: true

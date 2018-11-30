@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def new
     @booking = Booking.find(params[:booking_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
@@ -10,6 +11,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     @review.booking.user = current_user
+    authorize @review
     if @review.save!
       redirect_to reservations_animals_path
       flash[:notice] = "Posted"
@@ -22,6 +24,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
+    authorize @review
     redirect_to reservations_animals_path
   end
 

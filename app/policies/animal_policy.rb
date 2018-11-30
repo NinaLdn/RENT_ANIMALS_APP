@@ -5,40 +5,47 @@ class AnimalPolicy < ApplicationPolicy
     end
   end
 
-    def new?
+  def new?
+    true
+  end
+
+  def create?
+    true
+  end
+
+  def show?
+    true
+  end
+
+  def edit?
+    if record.user == user
       true
-    end
-
-    def create?
-      true
-    end
-
-    def show?
-      true
-    end
-
-    def update?
-
-      if record.user == user
-        true
-      else
-        false
-      end
-    end
-
-    def ads?
+    else
       false
     end
+  end
 
-    def index?
+  def update?
+    if record.user == user
       true
+    else
+      false
     end
+  end
 
-    def destroy?
-      if record.user == user
-        true
-      else
-        false
-      end
+  def ads?
+    false
+  end
+
+  def index?
+    true
+  end
+
+  def destroy?
+    if record.user == user
+      true
+    else
+      false
     end
+  end
 end
