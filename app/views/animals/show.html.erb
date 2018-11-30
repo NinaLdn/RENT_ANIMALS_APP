@@ -2,7 +2,7 @@
   <div class="animal-container">
 
 
-    <div class="animal-picture">
+    <div class="animal-picture" style='border-radius:20px'>
 
       <%= cl_image_tag @animal.photo, crop: :fill, class: "picture-of-the-animal" %>
 
@@ -11,15 +11,33 @@
     <div class="animal-description">
 
       <div class="animal-description-top">
-        <h1><%= @animal.name %></h1>
+        <h1 style= "margin-top:0px"><%= @animal.name %></h1>
         <p><%= @animal.description %></p>
+      </div>
+
+      <div class='icons-bar'>
+        <p> <strong> Les avantages de ChattesPoullettes </strong></p>
+        <div class = 'icons-advantages' style='display:inline-block'>
+          <div class='icon-fast'>
+            <%= image_tag '001-dog.png' %>
+            <p>Rapide</p>
+          </div>
+          <div class='icon-cruelty'>
+            <%= image_tag '004-heart.png' %>
+            <p>Sans cruauté</p>
+          </div>
+          <div class='icon-certified'>
+            <%= image_tag '005-cat.png' %>
+            <p>Maxi fun</p>
+          </div>
+        </div>
       </div>
 
       <div class="animal-description-bottom">
 
         <div class="animal-price-book">
 
-            <p><%= @animal.price %> €/jour</p>
+            <p><strong><%= @animal.price %> €</strong>/jour</p>
 
             <%= link_to "Book now", new_animal_booking_path(@animal), class: "btn-hover color-1" %>
 
@@ -30,25 +48,17 @@
           <%= link_to "Edit", edit_animal_path(@animal), class: "btn btn-info" %>
           <%= link_to "Delete", animal_path(@animal),
                 method: :delete,
-                data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+                data: { confirm: "Are you sure?" }, id:"btn-animal-edit", class: "btn btn-danger" %>
           <% end %>
         </div>
-
-
-
-
-
-
-
-
-
-
 
       </div>
 
 
     </div>
   </div>
-  <%= link_to "Back Index", animals_path, class: "btn btn-primary" %>
+  <div class="animal-back-index">
+  <%= link_to "Back Index", animals_path, id:"btn-back-index", class: "btn btn-primary" %>
+  </div>
 </div>
 
