@@ -1,7 +1,7 @@
 
 <div class="wrapper-ads">
   <div class="container">
-    <h1> My Ads</h1>
+    <h1> Mes annonces</h1>
     <div class="row">
       <% @animals.each do |animal| %>
 
@@ -24,29 +24,37 @@
       <%end%>
 
     </div>
-  </div>
 
-  <h1>Demandes de réservations</h1>
+
+  <h1>Vous avez <strong><%= pluralize current_user.bookings_as_owner.count, 'demande' %></strong></h1>
   <% current_user.bookings_as_owner.each do |booking| %>
     <div class='message'>
-      <div class='message-title'>
-        <h4>lorem ipsum</h1>
+      <div class='message-name'>
+        <p><strong><%= booking.user.email %></strong></p>
       </div>
       <div class='message-body'>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae aperiam dolores, quibusdam?</p>
+        <p><%= booking.message %></p>
+      </div>
+
+      <div class='message-status'>
+        <p style='margin-bottom:0px'> Total Price</p>
+        <p><%=booking.total_price %>€</p>
       </div>
 
       <div class ='message-buttons'>
+        <% if booking.status.nil? %>
         <%= link_to 'accept', booking_accept_booking_path(booking, status: true),
           method: 'patch',
           class:'btn btn-success' %>
         <%= link_to 'decline', booking_accept_booking_path(booking, status: false),
           method: 'patch',
           class:'btn btn-danger' %>
+        <% else %>
+        <% end %>
       </div>
 
       <div class='message-status'>
-        <p>status</p>
+        <p style ='margin-bottom:2px'>status</p>
         <% if booking.status.nil? %>
           <p style='color:yellow'>pending</p>
         <% elsif booking.status == true %>
@@ -60,5 +68,5 @@
     <% end %>
 
 </div>
-
+</div>
 
