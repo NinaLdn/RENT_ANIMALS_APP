@@ -12,28 +12,16 @@
 
       <!-- Links when logged in -->
 
-      <div class="animated arrow">
-        <ul class='loading-frame'>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-          <div class='circle'></div>
-        </ul>
+      <div class="animated-arrow">
+        <i class="fa fa-arrow-right"></i>
       </div>
-
-      <div>
+      <div class="navbar-link-add">
         <%= link_to "Déposez une annonce", new_animal_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
-      <div>
+      <div class="navbar-link-other">
         <%= link_to " Mes Annonces", ads_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
-      <div>
+      <div class="navbar-link-other">
         <%= link_to "Mes Réservations", reservations_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
       </div>
 
