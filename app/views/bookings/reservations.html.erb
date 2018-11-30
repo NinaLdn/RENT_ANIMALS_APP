@@ -19,7 +19,7 @@
             <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
             <img class="card-img-top" src="<%= picture %>" alt="Card image cap">
           </div>
-          <div class="card-body">
+          <div class="card-body" style ="height: 200px">
             <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
             <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
             <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
@@ -27,7 +27,7 @@
             <div>
               <p class="orange-font">Review</p>
                 <div class="review-exist">
-                  <% if booking.reviews.any? %>
+                  <% if [(booking.reviews.any?)]%>
                     <% booking.reviews.each do |review| %>
                       <p>- <%= review.content %></p>
                 <div>
@@ -49,13 +49,13 @@
               <%= link_to "More info", animal_path(booking.animal), class: "link-card-resa-info" %>
             </div>
             <div>
-              <% if booking.reviews.any? %>
+              <% if (booking.end_date - Date.today > 0)%>
                 <p></p>
               <% else %>
               <%= link_to "Add review", new_booking_review_path(booking), class: "link-card-resa-review" %>
               <% end %>
             </div>
-            
+
             <div class="card-status">
               <% if booking.status.nil? %>
                 <p style='color:yellow'>pending</p>
