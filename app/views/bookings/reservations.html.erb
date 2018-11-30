@@ -14,17 +14,14 @@
             <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
             <img class="card-img-top" src="<%= picture %>" alt="Card image cap" style="max-height: 225px">
           </div>
-          <div class="card-body-top">
-            <p>From <strong> <%= booking.start_date %> </strong></p>
-            <p>To <strong><%= booking.end_date %></strong></p>
-          </div>
+
           <div class="card-body" style ="height: 200px">
             <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
             <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
             <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
             <div class="box-review-resa">
             <div>
-              <p class="orange-font">Review</p>
+              <p style="font-size: 16px">Review</p>
                 <div class="review-exist">
                   <% if [(booking.reviews.any?)]%>
                     <% booking.reviews.each do |review| %>
@@ -43,21 +40,13 @@
             </div>
 
           </div>
-          <div class="card-body-bottom">
-            <div>
-              <%= link_to "More info", animal_path(booking.animal), class: "link-card-resa-info" %>
-            </div>
-            <div>
-              <% if (booking.end_date - Date.today > 0 && booking.status == true)%>
-                <p></p>
-              <% else %>
-              <%= link_to "Add review", new_booking_review_path(booking), class: "link-card-resa-review" %>
-              <% end %>
-            </div>
+          <div class="card-body-bottom" style="font-size: 14px">
+            <p style='color:#4968ad'>From <strong> <%= booking.start_date %></strong></p></strong></p>
+            <p style='color:#4968ad'>To <strong><%= booking.end_date %></strong></p>
 
             <div class="card-status">
               <% if booking.status.nil? %>
-                <p style='color:yellow'>pending</p>
+                <p style='color:#efcd0e'>pending</p>
               <% elsif booking.status == true %>
                 <p style='color:green'>confirmed</p>
               <% else %>
@@ -93,8 +82,8 @@
             <h6 class="card-title description-resa"><%=booking.animal.description %></h6>
             <p class="card-text price-resa"><i class="fas fa-euro-sign"></i><%= booking.animal.price %></p>
             <div class="box-review-resa">
-            <div>
-              <p class="orange-font">Review</p>
+
+              <p style="font-size: 16px">Review</p>
                 <div class="review-exist">
                   <% if [(booking.reviews.any?)]%>
                     <% booking.reviews.each do |review| %>
@@ -108,15 +97,14 @@
                   <% else %>
                     <p></p>
                   <% end %>
-                </div>
-              </div>
+                              </div>
             </div>
 
           </div>
           <div class="card-body-bottom">
             <div>
-              <input type="button", value="Review", id="reviewbtn", class="button-book btn btn-primary", data-target="#reviewModal" data-toggle="modal">
-              <div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <input type="button", value="Review", id="reviewbtn", class="button-book btn btn-primary", data-target="#reviewModal-<%= booking.id %>" data-toggle="modal">
+              <div class="modal fade" id="reviewModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content" style="color:white">
                     <div class="modal-header">
