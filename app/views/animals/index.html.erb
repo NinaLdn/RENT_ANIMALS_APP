@@ -1,36 +1,40 @@
-<div class="container">
-  <h1 style='padding-bottom:30px; margin-top:30px; font-weight:bold'> Mieux vaut tous les aimer </h1>
+<div class="wrapper-ads">
+  <div class="container">
+    <h1 style='padding-bottom:30px; margin-top:30px; font-weight:bold'> Mieux vaut tous les aimer </h1>
 
-  <div class='content'>
-    <div class='container card-container'>
+    <div class='content'>
+      <div class='container card-container'>
 
-      <div class="row">
-        <% @animals.each do |animal| %>
+        <div class="row">
+          <% @animals.each do |animal| %>
 
-            <div class="col-xs-12 col-sm-6 col-md-6">
-              <% picture = animal.photo.present? ? animal.photo : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <% picture = animal.photo.present? ? animal.photo : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
 
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= picture %>);">
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= picture %>);">
 
-                <div class="card-description">
-                  <h2 style='font-size: 16px'><%=link_to animal.name, animal_path(animal), class: "white-text" %></h2>
+                  <div class="card-description">
+                    <h2 style='font-size: 16px'><%=link_to animal.name, animal_path(animal), class: "white-text" %></h2>
+                  </div>
+                  <div class="card-price">
+                    <p><%= animal.price %> €/j</p>
+                  </div>
+
                 </div>
-                <div class="card-price">
-                  <p><%= animal.price %> €/j</p>
-                </div>
-
               </div>
-            </div>
 
-        <%end%>
+          <%end%>
 
+        </div>
       </div>
-    </div>
 
-    <div
-    id="map"
-    style="width: 100%;
-    height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    ></div>
+      <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
+</div>
+
+

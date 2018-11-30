@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index] do
     resources :reviews, only: [:new, :create]
   end
+  resources :bookings do
+    patch 'accept_booking', to: "bookings#accept_booking"
+  end
 end
 
 
