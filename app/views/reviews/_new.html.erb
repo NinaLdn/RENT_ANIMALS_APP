@@ -1,0 +1,10 @@
+
+<%= simple_form_for([booking, review]) do |f| %>
+  <%= f.select :rating, Review::RATING %>
+  <%= f.input :content %>
+  <% link_text = "Add review" %>
+  <%= f.submit link_text, class: "btn-hover color-1" %>
+<%end%>
+
+
+

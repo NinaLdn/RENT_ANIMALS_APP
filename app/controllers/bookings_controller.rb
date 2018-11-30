@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
-
   end
 
   def new
@@ -43,6 +42,7 @@ class BookingsController < ApplicationController
   def reservations
     # @animal = Animal.find(params[:animal_id])
     @bookings = Booking.where(user: current_user)
+    @review = Review.new
   end
 
   private
