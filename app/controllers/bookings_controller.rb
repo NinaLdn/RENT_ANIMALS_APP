@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   # before_action :set_booking, only: [:accept_booking]
-  skip_after_action :verify_authorized, only: :reservations
+  skip_after_action :verify_authorized, only: [:reservations, :accept_booking]
 
   def index
     @bookings = Booking.all
@@ -22,8 +22,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
+      flash[:notice] = "your booking was successfull"
       redirect_to reservations_animals_path
-      flash[:notice] = "your booking for was successfull"
     else
       render 'new'
     end
@@ -33,8 +33,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @booking.update(status: params[:status])
     redirect_to ads_animals_path
-    authorize @booking
-
   end
 
   def destroy
