@@ -7,7 +7,7 @@
     </div>
 
     <div class="search-bar-home">
-      <div class="search-bar-field">
+      <div class="search-bar-field" id="search-bar">
         <%= form_tag animals_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
@@ -15,6 +15,7 @@
             placeholder: "Chat calin"
           %>
       </div>
+
       <div class="search-bar-button">
         <%= button_tag "search", class:"btn-hover color-1" %>
       </div>
