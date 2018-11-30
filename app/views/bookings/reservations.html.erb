@@ -10,14 +10,9 @@
 
         <div class="card-resa">
 
-
-            <div class="reviews">
-              <%= booking.reviews.last.content unless booking.reviews.empty? %>
-            </div>
-
           <div>
             <% picture = booking.animal.photo.present? ? booking.animal.photo.url : 'https://s23527.pcdn.co/wp-content/uploads/2017/04/7f9b0349008983.58a83de93c77d.jpg.optimal.jpg' %>
-            <img class="card-img-top" src="<%= picture %>" alt="Card image cap">
+            <img class="card-img-top" src="<%= picture %>" alt="Card image cap" style="max-height: 225px">
           </div>
           <div class="card-body" style ="height: 200px">
             <h5 class="card-title title-resa"><%=booking.animal.name %></h5>
