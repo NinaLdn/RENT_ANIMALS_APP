@@ -14,12 +14,14 @@ class BookingsController < ApplicationController
   def new
     @animal = Animal.find(params[:animal_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.animal.id = booking_params[:animal_id]
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to reservations_animals_path
       flash[:notice] = "your booking for was successfull"
@@ -32,6 +34,8 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @booking.update(status: params[:status])
     redirect_to ads_animals_path
+    authorize @booking
+
   end
 
   def destroy

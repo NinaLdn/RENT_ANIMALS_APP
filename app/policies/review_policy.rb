@@ -1,4 +1,4 @@
-class BookingPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -17,6 +17,14 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    if record.user == user
+      true
+    else
+      false
+    end
+  end
+
   def update?
     if record.user == user
       true
@@ -25,24 +33,12 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-  def ads?
-    false
-  end
-
   def index?
     true
   end
 
   def destroy?
-    if record.user == user
-      true
-    else
-      false
-    end
-  end
-
-  def accept_booking?
-    if record.user == user
+    if record.booking.user == user
       true
     else
       false
