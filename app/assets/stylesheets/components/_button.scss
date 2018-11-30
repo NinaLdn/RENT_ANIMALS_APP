@@ -73,8 +73,40 @@
 
 .btn-hover.color-5 {
     background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    box-shadow: 0 2px 2px 0 rgba(23, 168, 108, 0.75);
 }
+
+.btn-hover.color-11 {
+  background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 1px 1px rgba(242, 97, 103, .4);
+  margin: 0;
+  padding: 12px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.btn-hover.color-12 {
+  background-image: linear-gradient(to right, #f4c200, #e8c800, #dbcd00, #ced200);  box-shadow: 0 1px 1px rgba(242, 97, 103, .4);
+  margin: 0;
+  padding: 12px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.btn-hover.color-9 {
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 1px 1px 0 rgba(65, 132, 234, 0.75);
+  margin: 0;
+  padding: 12px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+
+
 
 
 
