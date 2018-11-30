@@ -1,16 +1,41 @@
 <div class="navbar-wagon">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "doggy.png", height: 50 %>
-  <% end %>
+  <div class="logo-navbar">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "doggy.png", height: 50 %>
+    <% end %>
+  </div>
   <!-- Right Navigation -->
 
+  <div class="right-navbar-element">
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Déposez une annonce", new_animal_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to " Mes Annonces", ads_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Mes Réservations", reservations_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+      <div class="animated arrow">
+        <ul class='loading-frame'>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+          <div class='circle'></div>
+        </ul>
+      </div>
+
+      <div>
+        <%= link_to "Déposez une annonce", new_animal_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div>
+        <%= link_to " Mes Annonces", ads_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
+      <div>
+        <%= link_to "Mes Réservations", reservations_animals_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      </div>
 
        <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -52,4 +77,7 @@
       </ul>
     </div>
   </div>
+
+  </div>
+
 </div>
