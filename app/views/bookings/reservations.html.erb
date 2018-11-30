@@ -27,7 +27,7 @@
             <div>
               <p class="orange-font">Review</p>
                 <div class="review-exist">
-                  <% if booking.reviews.any? %>
+                  <% if (booking.reviews.any?) && (booking.end_date < Time.now)%>
                     <% booking.reviews.each do |review| %>
                       <p>- <%= review.content %></p>
                 <div>
@@ -55,7 +55,7 @@
               <%= link_to "Add review", new_booking_review_path(booking), class: "link-card-resa-review" %>
               <% end %>
             </div>
-            
+
             <div class="card-status">
               <% if booking.status.nil? %>
                 <p style='color:yellow'>pending</p>
